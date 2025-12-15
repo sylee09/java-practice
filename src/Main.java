@@ -4,6 +4,9 @@ public class Main {
     public static void main(String[] args) {
         Champion lucian = new Lucian();
         Champion sena = new Sena();
+        ChooseChampionResurrectStrategy strategy = new ChooseChampionResurrectStrategy();
+        strategy.setResurrect(new ResurrectConditionStrategy1());
+//        strategy.setResurrect(new ResurrectConditionStrategy2());
 
         lucian.attackFunc(sena);
         System.out.println("*********************");
@@ -38,8 +41,22 @@ public class Main {
 
         System.out.println("총 전투 횟수: "+GameConstants.BATTLE_COUNT);
         if (sena.getHp() <= 0) {
+            strategy.setChampion(sena);
             System.out.println(sena.getName() + "의 현재 체력: " + sena.getHp());
-            sena.resurrect();
+            strategy.resurrect();
+        }
+
+        while (sena.getHp() > 0) {
+            lucian.r(sena);
+            if (sena.getHp() == 0) {
+                ((Dealer) lucian).levelUp();
+            }
+        }
+
+        if (sena.getHp() <= 0) {
+            strategy.setChampion(sena);
+            System.out.println(sena.getName() + "의 현재 체력: " + sena.getHp());
+            strategy.resurrect();
         }
     }
 }
