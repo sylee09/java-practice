@@ -154,6 +154,12 @@ public class Lucian extends Champion implements Dealer{
         return critical <= this.getLuck();
     }
 
+    @Override
+    public void buffer() {
+        System.out.println("공격력이 10 증가합니다.");
+        setAtk(getAtk() + 10);
+    }
+
     static class ChampionLog {
         static ArrayList<String> battleLogs = new ArrayList<>();
 

@@ -156,6 +156,12 @@ public class Sena extends Champion implements Supporter {
         System.out.println("level Up후 현재 챔피언 정보: " + this);
     }
 
+    @Override
+    public void buffer() {
+        System.out.println("Mp가 30증가합니다.");
+        setMp(getMp() + 30);
+    }
+
     static class ChampionLog {
         static ArrayList<String> battleLogs = new ArrayList<>();
 
