@@ -35,5 +35,11 @@ public class Main {
                 ((Dealer) lucian).levelUp();
             }
         }
+
+        System.out.println("총 전투 횟수: "+GameConstants.BATTLE_COUNT);
+        if (sena.getHp() <= 0) {
+            System.out.println(sena.getName() + "의 현재 체력: " + sena.getHp());
+            sena.resurrect();
+        }
     }
 }

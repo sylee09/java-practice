@@ -85,6 +85,11 @@ public abstract class Champion {
 
     public abstract boolean criticalOccurred();
 
+    public final void resurrect() {
+        System.out.println(this.getName() + "이(가) 체력 1로 부활합니다.");
+        this.setHp(1);
+    }
+
     @Override
     public String toString() {
         return "Champion{" +
