@@ -139,11 +139,11 @@ public class Lucian extends Champion implements Dealer{
     public void levelUp() {
         System.out.println("levelUp 모든 스탯이 증가합니다.");
         System.out.println("현재 챔피언 정보: " + this);
-        this.setHp(this.getHp() + 300);
-        this.setAtk(this.getAtk() + 10);
-        this.setDef(this.getDef() + 3);
+        this.setHp(this.getHp() + ChampionTypeLevelUpStats.DEALER.hp);
+        this.setAtk(this.getAtk() + ChampionTypeLevelUpStats.DEALER.atk);
+        this.setDef(this.getDef() + ChampionTypeLevelUpStats.DEALER.def);
         this.setLv(this.getLv() + 1);
-        this.setMp(this.getMp() + 100);
+        this.setMp(this.getMp() + ChampionTypeLevelUpStats.DEALER.mp);
         System.out.println("level Up후 현재 챔피언 정보: " + this);
     }
 

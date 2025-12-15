@@ -148,11 +148,11 @@ public class Sena extends Champion implements Supporter {
     public void levelUp() {
         System.out.println("levelUp 모든 스탯이 증가합니다.");
         System.out.println("현재 챔피언 정보: " + this);
-        this.setHp(this.getHp() + 300);
-        this.setAtk(this.getAtk() + 8);
-        this.setDef(this.getDef() + 4);
+        this.setHp(this.getHp() + ChampionTypeLevelUpStats.SUPPORTER.hp);
+        this.setAtk(this.getAtk() + ChampionTypeLevelUpStats.SUPPORTER.atk);
+        this.setDef(this.getDef() + ChampionTypeLevelUpStats.SUPPORTER.def);
         this.setLv(this.getLv() + 1);
-        this.setMp(this.getMp() + 150);
+        this.setMp(this.getMp() + ChampionTypeLevelUpStats.SUPPORTER.mp);
         System.out.println("level Up후 현재 챔피언 정보: " + this);
     }
 
