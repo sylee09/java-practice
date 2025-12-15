@@ -11,7 +11,7 @@ public class Lucian extends Champion implements Dealer{
     }
 
     public Lucian() {
-        super("lucian", 650, 32, 250, 20, 1, 10);
+        super("lucian", GameConstants.LUCIAN_HP, GameConstants.LUCIAN_ATK, GameConstants.LUCIAN_MP, GameConstants.LUCIAN_DEF, GameConstants.START_LEVEL, GameConstants.START_LUCK);
     }
 
     @Override

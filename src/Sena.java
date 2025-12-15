@@ -11,7 +11,7 @@ public class Sena extends Champion implements Supporter {
     }
 
     public Sena() {
-        super("sena", 580, 28, 280, 22, 1, 10);
+        super("sena", GameConstants.SENA_HP, GameConstants.SENA_ATK, GameConstants.SENA_MP, GameConstants.SENA_DEF, GameConstants.START_LEVEL, GameConstants.START_LUCK);
     }
 
     @Override
