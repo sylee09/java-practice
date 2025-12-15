@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Lucian extends Champion implements Dealer{
@@ -23,6 +24,7 @@ public class Lucian extends Champion implements Dealer{
         }
         GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "가 " + a.getName() + "에게 일반공격을 가합니다. ");
+        ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "에게 일반공격을 가합니다. ");
         if (criticalOccurred()) {
             System.out.println("치명타 공격 발생");
             deal = this.getAtk() * 2 - a.getDef();
@@ -31,6 +33,7 @@ public class Lucian extends Champion implements Dealer{
         }
         giveDamage(a, deal);
         if (isDead(a)) {
+            ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "을 죽였습니다.");
             System.out.println(a.getName() + " 사망!");
         }
     }
@@ -59,6 +62,7 @@ public class Lucian extends Champion implements Dealer{
         }
         GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 q 스킬을 씁니다.");
+        ChampionLog.battleLogs.add(this.getName() + "이 q 스킬을 씁니다.");
         int dmg;
         if (criticalOccurred()) {
             System.out.println("치명타 공격 발생");
@@ -69,6 +73,7 @@ public class Lucian extends Champion implements Dealer{
         giveDamage(a, dmg);
         if (isDead(a)) {
             System.out.println(a.getName() + " 사망!");
+            ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "을 죽였습니다.");
         }
     }
 
@@ -80,6 +85,7 @@ public class Lucian extends Champion implements Dealer{
         }
         GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 w 스킬을 씁니다.");
+        ChampionLog.battleLogs.add(this.getName() + "이 w 스킬을 씁니다.");
         int dmg;
         if (criticalOccurred()) {
             System.out.println("치명타 공격 발생");
@@ -90,6 +96,7 @@ public class Lucian extends Champion implements Dealer{
         giveDamage(a, dmg);
         if (isDead(a)) {
             System.out.println(a.getName() + " 사망!");
+            ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "을 죽였습니다.");
         }
     }
 
@@ -101,6 +108,7 @@ public class Lucian extends Champion implements Dealer{
         }
         GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 e 스킬을 씁니다.");
+        ChampionLog.battleLogs.add(this.getName() + "이 e 스킬을 씁니다.");
     }
 
     @Override
@@ -111,6 +119,8 @@ public class Lucian extends Champion implements Dealer{
         }
         GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 r 스킬을 씁니다.");
+        ChampionLog.battleLogs.add(this.getName() + "이 r 스킬을 씁니다.");
+
         int dmg;
         if (criticalOccurred()) {
             System.out.println("치명타 공격 발생");
@@ -121,6 +131,7 @@ public class Lucian extends Champion implements Dealer{
         giveDamage(a, dmg);
         if (isDead(a)) {
             System.out.println(a.getName() + " 사망!");
+            ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "을 죽였습니다.");
         }
     }
 
@@ -141,5 +152,10 @@ public class Lucian extends Champion implements Dealer{
         Random random = new Random();
         int critical = random.nextInt(100) + 1;
         return critical <= this.getLuck();
+    }
+
+    static class ChampionLog {
+        static ArrayList<String> battleLogs = new ArrayList<>();
+
     }
 }

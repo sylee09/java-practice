@@ -58,5 +58,7 @@ public class Main {
             System.out.println(sena.getName() + "의 현재 체력: " + sena.getHp());
             strategy.resurrect();
         }
+
+        System.out.println("Lucian 전투기록: " + Lucian.ChampionLog.battleLogs);
     }
 }

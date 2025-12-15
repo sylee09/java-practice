@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Sena extends Champion implements Supporter {
@@ -23,6 +24,8 @@ public class Sena extends Champion implements Supporter {
         }
         GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "가 " + a.getName() + "에게 일반공격을 가합니다. ");
+        ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "에게 일반공격을 가합니다. ");
+
         if (criticalOccurred()) {
             System.out.println("치명타 공격 발생");
             deal = this.getAtk() * 2 - a.getDef();
@@ -31,6 +34,7 @@ public class Sena extends Champion implements Supporter {
         }
         giveDamage(a, deal);
         if (isDead(a)) {
+            ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "을 죽였습니다.");
             System.out.println(a.getName() + " 사망!");
         }
     }
@@ -59,6 +63,8 @@ public class Sena extends Champion implements Supporter {
         }
         GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 q 스킬을 씁니다.");
+        ChampionLog.battleLogs.add(this.getName() + "이 q 스킬을 씁니다.");
+
         int dmg;
         if (criticalOccurred()) {
             System.out.println("치명타 공격 발생");
@@ -68,6 +74,7 @@ public class Sena extends Champion implements Supporter {
         }
         giveDamage(a, dmg);
         if (isDead(a)) {
+            Sena.ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "을 죽였습니다.");
             System.out.println(a.getName() + " 사망!");
         }
     }
@@ -80,6 +87,8 @@ public class Sena extends Champion implements Supporter {
         }
         GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 w 스킬을 씁니다.");
+        ChampionLog.battleLogs.add(this.getName() + "이 w 스킬을 씁니다.");
+
         int dmg;
         if (criticalOccurred()) {
             System.out.println("치명타 공격 발생");
@@ -89,6 +98,7 @@ public class Sena extends Champion implements Supporter {
         }
         giveDamage(a, dmg);
         if (isDead(a)) {
+            Sena.ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "을 죽였습니다.");
             System.out.println(a.getName() + " 사망!");
         }
     }
@@ -111,6 +121,8 @@ public class Sena extends Champion implements Supporter {
         }
         GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 r 스킬을 씁니다.");
+        ChampionLog.battleLogs.add(this.getName() + "이 r 스킬을 씁니다.");
+
         int dmg;
         if (criticalOccurred()) {
             System.out.println("치명타 공격 발생");
@@ -120,6 +132,7 @@ public class Sena extends Champion implements Supporter {
         }
         giveDamage(a, dmg);
         if (isDead(a)) {
+            Sena.ChampionLog.battleLogs.add(this.getName() + "가 " + a.getName() + "을 죽였습니다.");
             System.out.println(a.getName() + " 사망!");
         }
     }
@@ -143,4 +156,8 @@ public class Sena extends Champion implements Supporter {
         System.out.println("level Up후 현재 챔피언 정보: " + this);
     }
 
+    static class ChampionLog {
+        static ArrayList<String> battleLogs = new ArrayList<>();
+
+    }
 }
