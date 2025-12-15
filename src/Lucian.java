@@ -17,6 +17,11 @@ public class Lucian extends Champion implements Dealer{
     @Override
     public void attackFunc(Champion a) {
         int deal;
+        if (isDead(a)) {
+            System.out.println("이미 사망한 상대는 공격할 수 없습니다.");
+            return;
+        }
+        GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "가 " + a.getName() + "에게 일반공격을 가합니다. ");
         if (criticalOccurred()) {
             System.out.println("치명타 공격 발생");
@@ -48,6 +53,11 @@ public class Lucian extends Champion implements Dealer{
 
     @Override
     public void q(Champion a) {
+        if (isDead(a)) {
+            System.out.println("이미 사망한 상대는 공격할 수 없습니다.");
+            return;
+        }
+        GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 q 스킬을 씁니다.");
         int dmg;
         if (criticalOccurred()) {
@@ -64,6 +74,11 @@ public class Lucian extends Champion implements Dealer{
 
     @Override
     public void w(Champion a) {
+        if (isDead(a)) {
+            System.out.println("이미 사망한 상대는 공격할 수 없습니다.");
+            return;
+        }
+        GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 w 스킬을 씁니다.");
         int dmg;
         if (criticalOccurred()) {
@@ -80,11 +95,21 @@ public class Lucian extends Champion implements Dealer{
 
     @Override
     public void e(Champion a) {
+        if (isDead(a)) {
+            System.out.println("이미 사망한 상대는 공격할 수 없습니다.");
+            return;
+        }
+        GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 e 스킬을 씁니다.");
     }
 
     @Override
     public void r(Champion a) {
+        if (isDead(a)) {
+            System.out.println("이미 사망한 상대는 공격할 수 없습니다.");
+            return;
+        }
+        GameConstants.BATTLE_COUNT++;
         System.out.println(this.getName() + "이 r 스킬을 씁니다.");
         int dmg;
         if (criticalOccurred()) {
