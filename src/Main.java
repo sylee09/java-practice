@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -8,6 +11,17 @@ public class Main {
         strategy.setResurrect(new ResurrectConditionStrategy1());
 //        strategy.setResurrect(new ResurrectConditionStrategy2());
 
+        System.out.println("printTeamMembers 테스트");
+        List<Champion> list1 = new ArrayList<>();
+        list1.add(lucian);
+        list1.add(sena);
+        PrintUtil.printTeamMembers(list1);
+        List<Lucian> list2 = new ArrayList<>();
+        list2.add(new Lucian());
+        list2.add(new Lucian());
+        PrintUtil.printTeamMembers(list2);
+
+        System.out.println("*********************");
         lucian.attackFunc(sena);
         System.out.println("*********************");
         lucian.q(sena);
