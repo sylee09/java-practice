@@ -20,6 +20,24 @@ public class Main {
         list2.add(new Lucian());
         list2.add(new Lucian());
         PrintUtil.printTeamMembers(list2);
+        List<Sena> list3 = new ArrayList<>();
+        list3.add(new Sena());
+        list3.add(new Sena());
+        PrintUtil.printTeamMembers(list3);
+        System.out.println();
+
+        System.out.println("*********************");
+        System.out.println("Battle.oneVsOne() 테스트");
+        Team<Champion> lucians = new Team<>();
+        lucians.addMember(new Lucian());
+        lucians.addMember(new Lucian());
+        lucians.addMember(new Lucian());
+        Team<Champion> senas = new Team<>();
+        senas.addMember(new Sena());
+        senas.addMember(new Sena());
+        senas.addMember(new Sena());
+        Battle.oneVsOne(lucians, senas);
+        System.out.println();
 
         System.out.println("*********************");
         lucian.attackFunc(sena);
