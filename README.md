@@ -87,3 +87,67 @@
   hook 메서드로 제공해보고
 
   자식 클래스에서만 다르게 구현하도록 제한해보기
+
+# [필수 미션] - 랜덤 1:1 전투 시뮬레이션
+
+이제 서로의 팀에서 랜덤한 챔피언 하나씩 꺼내 싸우게 해보자.
+### 예시: 랜덤 전투 메서드
+
+```java
+public class Battle {
+
+    private static Random random = new Random();
+
+    public static void oneVsOne(Team<Champion> t1, Team<Champion> t2) {
+
+        Champion c1 = randomPick(t1.getMembers());
+        Champion c2 = randomPick(t2.getMembers());
+
+        System.out.println("\n===== 1:1 전투 시작 =====");
+        System.out.println(c1.getName() + " vs " + c2.getName());
+
+        c1.basicAttack(c2);
+        c2.basicAttack(c1);
+
+        c1.useQ(c2);
+        c2.useQ(c1);
+    }
+
+    private static Champion randomPick(List<Champion> list) {
+        return list.get(random.nextInt(list.size()));
+    }
+}
+```
+
+# [선택 미션]
+
+### **1. 제네릭 와일드카드(? extends Champion) 적용해보기**
+
+### 미션 내용
+
+- 아래 메서드를 설계하세요.
+
+```java
+public static void printTeamMembers(List<? extends Champion> team)
+```
+
+- `List<Garen>` , `List<Champion>` 모두 받을 수 있어야 합니다.
+
+---
+
+### 2. **잘못된 제네릭 설계 사례 만들고 고쳐보기**
+
+### 미션 내용
+
+- 아래와 같은 잘못된 설계를 먼저 작성합니다.
+
+```java
+public class Team<T> {
+    private List<T> members;
+}
+```
+
+- 왜 이 설계가 위험한지 설명한 뒤 T extends Champion 으로 수정하세요.
+
+T는 모든 타입을 받을 수 있다. 그래서 String, Integer, Champion과 같은 모든 타입들이 들어 올 수 있다. 과제에서는 Team에 Champion만이 들어오도록 하기 때문에
+extends를 사용하여 타입을 한정짓는 것이 더 안정적이다.
